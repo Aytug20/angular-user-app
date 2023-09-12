@@ -1,0 +1,30 @@
+<div class="container my-5">
+
+    <h1 class="mb">Users</h1>
+    <table class="table" *ngIf="employees && employees.length >0 ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Birthdate</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees" >
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.lastname}}</td>
+                <td>{{employee.birthdate}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td>
+                <td><a [routerLink]="['/employees', 'edit', employee.id]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf = "!employees || employees.length <= 0">No Employees found <i class="fa fa-soundcloud" aria-hidden="true"></i></p>
+
+</div>
